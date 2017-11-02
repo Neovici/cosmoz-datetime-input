@@ -46,7 +46,7 @@
   <script>
 	/**
 		* `cosmoz-datetime-input`
-		* Mimics &lt;input type=&#34;cosmoz-datetime-input&#34;&gt; with broad browser support
+		* Mimics &lt;input type=&#34;cosmoz-datetime-input&#34;&gt
 		*
 		* @customElement
 		* @polymer
@@ -56,32 +56,56 @@
 			is: 'cosmoz-datetime-input',
 	
 			properties: {
+				/**
+				 * The date part of the value
+				 */
 				date: {
 					type: String,
 					notify: true
 				},
+				/**
+				 * The date part of the value
+				 */
 				time: {
 					type: String,
 					notify: true
 				},
+				/**
+				 * The step of the time input
+				 */
 				step: {
 					type: String,
 					value: '1'
 				},
+				/**
+				 * The date or datetime input value
+				 */
 				value: {
 					type: String,
 					notify: true,
 					observer: '_valueChanged'
 				},
+				/**
+				 * The label of the time input
+				 */
 				timeLabel: {
 					type: String,
 				},
+				/**
+				 * The label of the date input
+				 */
 				dateLabel: {
 					type: String,
 				},
+				/**
+				 * The max date/datetime of the inputs
+				 */
 				max: {
 					type: String,
 				},
+				/**
+				 * The min date/datetime of the inputs
+				 */
 				min: {
 					type: String,
 				},
@@ -97,6 +121,9 @@
 				_maxTime: {
 					type: String,
 				},
+				/**
+				 * The possible separators between date and time input values
+				 */
 				_separators: {
 					type: Array,
 					value() {
