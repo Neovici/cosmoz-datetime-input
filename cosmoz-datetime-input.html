@@ -1,0 +1,189 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input-container.html">
+
+<dom-module id="cosmoz-datetime-input">
+	<template>
+    	<style>
+			:host {
+				display: block;
+			}
+			.container {
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-ms-flex-direction: row;
+				-webkit-flex-direction: row;
+				flex-direction: row;
+				@apply --cosmoz-datetime-input-container;
+			}
+			input {
+				@apply --cosmoz-datetime-input-input;
+			}
+			label {
+				pointer-events: none;
+				@apply --cosmoz-datetime-input-label;
+			}
+		</style>
+	
+		<div class="container">
+			<paper-input-container always-float-label>
+				<label hidden$="[[!dateLabel]]" slot="label" aria-hidden="true" for="dateInput">[[dateLabel]]</label>
+				<input id="dateInput" type="date" slot="input"
+					value="{{date::input}}"
+					min$="[[_minDate]]"
+					max$="[[_maxDate]]">
+			</paper-input-container>
+			<paper-input-container always-float-label>
+				<label hidden$="[[!timeLabel]]" slot="label" aria-hidden="true" for="timeInput">[[timeLabel]]</label>	
+				<input id="timeInput" is="iron-input" type="time" slot="input"
+					value="{{time::input}}"
+					step="[[step]]"
+					min$="[[_minTime]]"
+					max$="[[_maxTime]]">
+			</paper-input-container>
+		</div>
+  </template>
+  <script>
+	/**
+		* `cosmoz-datetime-input`
+		* Mimics &lt;input type=&#34;cosmoz-datetime-input&#34;&gt; with broad browser support
+		*
+		* @customElement
+		* @polymer
+		* @demo demo/index.html
+		*/
+		Polymer({
+			is: 'cosmoz-datetime-input',
+	
+			properties: {
+				date: {
+					type: String,
+					notify: true
+				},
+				time: {
+					type: String,
+					notify: true
+				},
+				step: {
+					type: String,
+					value: '1'
+				},
+				value: {
+					type: String,
+					notify: true,
+					observer: '_valueChanged'
+				},
+				timeLabel: {
+					type: String,
+				},
+				dateLabel: {
+					type: String,
+				},
+				max: {
+					type: String,
+				},
+				min: {
+					type: String,
+				},
+				_minDate: {
+					type: String,
+				},
+				_maxDate: {
+					type: String,
+				},
+				_minTime: {
+					type: String
+				},
+				_maxTime: {
+					type: String,
+				},
+				_separators: {
+					type: Array,
+					value() {
+						return ['T', ' '];
+					}
+				}
+			},
+
+			observers: [
+				'_setValue(date, time)',
+				'_setMinMax(min, max)'
+			],
+			/**
+			 * Sets the value property via a date and time string.
+			 * @param {String} date - The date string.
+			 * @param {String} time - The time string.
+			 * @return {undefined}
+			 */
+			_setValue(date, time) {
+				if (date && time) {
+					this.value = `${date}T${time}`;
+					return;
+				}
+				this.value = date ? date : time;
+			},
+			/**
+			 * Sets the date and time property via a value string.
+			 * @param {String} value - The input value. Either datetime or date string.
+			 * @return {undefined}
+			 */
+			_valueChanged(value) {
+				if (!value) {
+					this.date = '';
+					this.time = '';
+					return;
+				}
+				var isDatetime = this._separators.some(split => {
+					if (!value.match(split)) {
+						return;
+					}
+					var parts = this._getDateTimeParts(value);
+					this.date = parts.shift();
+					this.time = parts.shift();
+					return true;
+				});
+
+				if (!isDatetime) {
+					this.date = value;
+				}
+				this.fire('cosmoz-datetime-input-value-changed');
+			},
+			/**
+			 * Returns a [date, time] or [date] array via a dateTime string.
+			 * @param {String} aDateTime - The datetime or date string.
+			 * @return {undefined}
+			 */
+			_getDateTimeParts(aDateTime) {
+				if (!aDateTime) {
+					return;
+				}
+	
+				var parts;
+
+				this._separators.some(split => {
+					if (!aDateTime.match(split)) {
+						return;
+					}
+					parts = aDateTime.split(split);
+					return true;
+				});
+
+				return parts || [aDateTime];
+			},
+			/**
+			 * Sets the min/max-date/time properties via min/max-dateTime strings.
+			 * @param {String} min - The min Date/DateTime.
+			 * @param {String} max - the max Date/DateTime.
+			 * @return {undefined}
+			 */
+			_setMinMax(min, max) {
+				var minParts = this._getDateTimeParts(min),
+					maxParts = this._getDateTimeParts(max);
+				this._minDate = minParts.shift();
+				this._minTime = minParts.shift();
+				this._maxDate = maxParts.shift();
+				this._maxTime = maxParts.shift();
+			}
+		});
+	</script>
+</dom-module>

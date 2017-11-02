@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>cosmoz-datetime-input test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../cosmoz-datetime-input.html">
+  </head>
+  <body>
+
+    <test-fixture id="BasicTestFixture">
+      <template>
+        <cosmoz-datetime-input></cosmoz-datetime-input>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('cosmoz-datetime-input', function () {
+      	var input;
+
+      	setup(function () {
+      		input = fixture('BasicTestFixture');
+      	});
+
+      	test('instantiating the element works', function () {
+      		assert.equal(input.is, 'cosmoz-datetime-input');
+      	});
+      });
+    </script>
+
+  </body>
+</html>
