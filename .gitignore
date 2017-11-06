@@ -1,0 +1,7 @@
+bower_components/
+bower_components-1.x/
+node_modules/
+debug.log
+.eslintcache
+.DS_Store
+bower-1.x.json
