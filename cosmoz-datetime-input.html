@@ -143,11 +143,21 @@
 			 * @return {undefined}
 			 */
 			_setValue(date, time) {
-				if (date && time) {
-					this.value = `${date}T${time}`;
+				if (!date && !time) {
+					this.value = null;
 					return;
 				}
-				this.value = date ? date : time;
+
+				if (!date && time) {
+					this.value = `T${time}`;
+					return;
+				}
+	
+				if (date && !time) {
+					this.value = date;
+					return;
+				}
+				this.value = `${date}T${time}`;
 			},
 			/**
 			 * Sets the date and time property via a value string.
@@ -206,10 +216,12 @@
 			_setMinMax(min, max) {
 				var minParts = this._getDateTimeParts(min),
 					maxParts = this._getDateTimeParts(max);
-				this._minDate = minParts.shift();
-				this._minTime = minParts.shift();
-				this._maxDate = maxParts.shift();
-				this._maxTime = maxParts.shift();
+	
+				this._minDate = Array.isArray(minParts) ? minParts.shift() : null;
+				this._minTime = Array.isArray(minParts) ? minParts.shift() : null;
+
+				this._maxDate = Array.isArray(maxParts) ? maxParts.shift() : null;
+				this._maxTime = Array.isArray(maxParts) ? maxParts.shift() : null;
 			}
 		});
 	</script>
