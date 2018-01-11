@@ -39,28 +39,50 @@
       </demo-snippet>
       <h3>Set value cosmoz-datetime-input demo</h3>
       <demo-snippet>
-          <template>
-            <dom-bind class="scope">
-                <template is="dom-bind" class="scope">
-                  <cosmoz-datetime-input date-label="Date label" time-label="Time Label"
-                    date="{{date}}"
-                    time="{{time}}"
-                    value="{{value}}"></cosmoz-datetime-input>
-                  <div>
-                    <p>Date: [[date]]</p>
-                    <p>Time: [[time]]</p>
-                    <input is="iron-input" value="{{value::input}}">
-                  </div>
-                </template>
-            </dom-bind>
-          </template>
-        </demo-snippet>
+        <template>
+          <dom-bind class="scope">
+              <template is="dom-bind" class="scope">
+                <cosmoz-datetime-input date-label="Date label" time-label="Time Label"
+                  date="{{date}}"
+                  time="{{time}}"
+                  value="{{value}}"></cosmoz-datetime-input>
+                <div>
+                  <p>Date: [[date]]</p>
+                  <p>Time: [[time]]</p>
+                  <input is="iron-input" value="{{value::input}}">
+                </div>
+              </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
+      <h3>Min/Max cosmoz-datetime-input demo</h3>
+      <demo-snippet>
+        <template>
+          <dom-bind class="scope">
+              <template is="dom-bind" class="scope">
+                <cosmoz-datetime-input date-label="Date label" time-label="Time Label"
+                  date="{{date}}"
+                  time="{{time}}"
+                  min="2019-10-01T12:00:00"
+                  max="2019-10-07T14:00:00"
+                  value="{{value}}"></cosmoz-datetime-input>
+                <div>
+                  <p>Date: [[date]]</p>
+                  <p>Time: [[time]]</p>
+                  <p>Min: 2019-10-01T12:00:00</p>
+                  <p>Max: 2019-10-07T14:00:00</p>
+                  <input is="iron-input" value="{{value::input}}">
+                </div>
+              </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
     </div>
 
     <script type="text/javascript">
       (() => {
       	window.addEventListener('WebComponentsReady', () => {
-      		let value = '2019-10-14T12:33:59';
+      		let value = '2019-10-02T12:33:59';
       		document.querySelectorAll('.scope').forEach(s => s.value = value);
       	});
       })();
