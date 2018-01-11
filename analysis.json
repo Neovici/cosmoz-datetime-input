@@ -1,0 +1,560 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`cosmoz-datetime-input`\nMimics &lt;input type=&#34;cosmoz-datetime-input&#34;&gt",
+      "summary": "",
+      "path": "cosmoz-datetime-input.html",
+      "properties": [
+        {
+          "name": "date",
+          "type": "string",
+          "description": "The date part of the value",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 4
+            },
+            "end": {
+              "line": 64,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "description": "The date part of the value",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 4
+            },
+            "end": {
+              "line": 71,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "step",
+          "type": "string",
+          "description": "The step of the time input",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 4
+            },
+            "end": {
+              "line": 78,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"1\""
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The date or datetime input value",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 4
+            },
+            "end": {
+              "line": 86,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_valueChanged\""
+            }
+          }
+        },
+        {
+          "name": "timeLabel",
+          "type": "string",
+          "description": "The label of the time input",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 4
+            },
+            "end": {
+              "line": 92,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "dateLabel",
+          "type": "string",
+          "description": "The label of the date input",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 4
+            },
+            "end": {
+              "line": 98,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "description": "The max date/datetime of the inputs",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 4
+            },
+            "end": {
+              "line": 104,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "description": "The min date/datetime of the inputs",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 108,
+              "column": 4
+            },
+            "end": {
+              "line": 110,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "_minDate",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 4
+            },
+            "end": {
+              "line": 113,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "_maxDate",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 4
+            },
+            "end": {
+              "line": 116,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "_minTime",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 117,
+              "column": 4
+            },
+            "end": {
+              "line": 119,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "_maxTime",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 120,
+              "column": 4
+            },
+            "end": {
+              "line": 122,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "_separators",
+          "type": "Array",
+          "description": "The possible separators between date and time input values",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 126,
+              "column": 4
+            },
+            "end": {
+              "line": 131,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "[\"T\",\" \"]"
+        }
+      ],
+      "methods": [
+        {
+          "name": "_setValue",
+          "description": "Sets the value property via a date and time string.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 144,
+              "column": 3
+            },
+            "end": {
+              "line": 160,
+              "column": 4
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "date",
+              "type": "String",
+              "description": "The date string."
+            },
+            {
+              "name": "time",
+              "type": "String",
+              "description": "The time string."
+            }
+          ],
+          "return": {
+            "type": "undefined"
+          }
+        },
+        {
+          "name": "_valueChanged",
+          "description": "Sets the date and time property via a value string.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 166,
+              "column": 3
+            },
+            "end": {
+              "line": 186,
+              "column": 4
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value",
+              "type": "String",
+              "description": "The input value. Either datetime or date string."
+            }
+          ],
+          "return": {
+            "type": "undefined"
+          }
+        },
+        {
+          "name": "_getDateTimeParts",
+          "description": "Returns a [date, time] or [date] array via a dateTime string.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 3
+            },
+            "end": {
+              "line": 208,
+              "column": 4
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "aDateTime",
+              "type": "String",
+              "description": "The datetime or date string."
+            }
+          ],
+          "return": {
+            "type": "undefined"
+          }
+        },
+        {
+          "name": "_setMinMax",
+          "description": "Sets the min/max-date/time properties via min/max-dateTime strings.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 215,
+              "column": 3
+            },
+            "end": {
+              "line": 224,
+              "column": 4
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "min",
+              "type": "String",
+              "description": "The min Date/DateTime."
+            },
+            {
+              "name": "max",
+              "type": "String",
+              "description": "the max Date/DateTime."
+            }
+          ],
+          "return": {
+            "type": "undefined"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/index.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 54,
+          "column": 10
+        },
+        "end": {
+          "line": 225,
+          "column": 3
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "attributes": [
+        {
+          "name": "date",
+          "description": "The date part of the value",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 4
+            },
+            "end": {
+              "line": 64,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "description": "The date part of the value",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 4
+            },
+            "end": {
+              "line": 71,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "step",
+          "description": "The step of the time input",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 4
+            },
+            "end": {
+              "line": 78,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "description": "The date or datetime input value",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 4
+            },
+            "end": {
+              "line": 86,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "time-label",
+          "description": "The label of the time input",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 4
+            },
+            "end": {
+              "line": 92,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "date-label",
+          "description": "The label of the date input",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 4
+            },
+            "end": {
+              "line": 98,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "max",
+          "description": "The max date/datetime of the inputs",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 4
+            },
+            "end": {
+              "line": 104,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "min",
+          "description": "The min date/datetime of the inputs",
+          "sourceRange": {
+            "start": {
+              "line": 108,
+              "column": 4
+            },
+            "end": {
+              "line": 110,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "date-changed",
+          "description": "Fired when the `date` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "time-changed",
+          "description": "Fired when the `time` property changes.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the `value` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "cosmoz-datetime-input"
+    }
+  ]
+}
