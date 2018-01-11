@@ -7,15 +7,15 @@
 		"test": "test"
 	},
 	"devDependencies": {
-		"eslint": "^3.9.1",
-		"eslint-plugin-html": "^3.1.1",
+		"eslint": "^4.10.0",
+		"eslint-plugin-html": "^3.2.2",
 		"eslint-plugin-mocha": "^4.11.0",
-		"polymer-cli": "^1.4.1"
+		"polymer-cli": "^1.5.7"
 	},
 	"scripts": {
 		"start": "polymer serve -o",
-		"postinstall": "polymer install",
-		"lint": "eslint --cache --ext .js,.html . && polymer lint cosmoz-*.html",
+		"postinstall": "polymer install --variants",
+		"lint": "eslint --cache --cache-location .eslintcache/ --ext .js,.html . && polymer lint cosmoz-*.html",
 		"test": "polymer test",
 		"analyze": "polymer analyze --input cosmoz-*.html  > analysis.json"
 	},
