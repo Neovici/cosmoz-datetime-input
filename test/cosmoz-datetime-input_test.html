@@ -1,42 +1,104 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>cosmoz-datetime-input test</title>
+	<title>cosmoz-datetime-input test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../cosmoz-datetime-input.html">
-  </head>
-  <body>
+	<link rel="import" href="../cosmoz-datetime-input.html">
+</head><body>
 
-    <test-fixture id="BasicTestFixture">
-      <template>
-        <cosmoz-datetime-input></cosmoz-datetime-input>
-      </template>
-    </test-fixture>
+	<test-fixture id="BasicTestFixture">
+		<template>
+			<cosmoz-datetime-input></cosmoz-datetime-input>
+		</template>
+	</test-fixture>
 
-    <script>
-      suite('cosmoz-datetime-input', function () {
-      	var input;
+	<script>
+		suite('cosmoz-datetime-input', function () {
+			var input;
 
-      	setup(function () {
-      		input = fixture('BasicTestFixture');
-      	});
+			setup(function () {
+				input = fixture('BasicTestFixture');
+			});
 
-      	test('instantiating the element works', function () {
-      		assert.equal(input.is, 'cosmoz-datetime-input');
-      	});
-      	test('Setting input value', function () {
-      		input.value = '2019-10-14T14:33:59';
-      		assert.equal(input.date, '2019-10-14');
-      		assert.equal(input.time, '14:33:59');
-      	});
-      });
-    </script>
+			test('instantiating the element works', function () {
+				assert.equal(input.is, 'cosmoz-datetime-input');
+			});
 
-  </body>
-</html>
+			test('Setting input value', function () {
+				input.value = '2019-10-14T14:33:59';
+				assert.equal(input.date, '2019-10-14');
+				assert.equal(input.time, '14:33:59');
+			});
+
+			test('_getDateTimeParts returns date, time ', function (done) {
+				assert.isUndefined(input._getDateTimeParts());
+				assert.isUndefined(input._getDateTimeParts(null));
+				assert.isUndefined(input._getDateTimeParts(''));
+				let result = input._getDateTimeParts('2017-03-23T11:22:33');
+				assert.equal(result[0], '2017-03-23');
+				assert.equal(result[1], '11:22:33');
+
+				result = input._getDateTimeParts('2021-12-03T09:26:04');
+				assert.equal(result[0], '2021-12-03');
+				assert.equal(result[1], '09:26:04');
+
+				result = input._getDateTimeParts('2017-01-16T09:19:38');
+				assert.equal(result[0], '2017-01-16');
+				assert.equal(result[1], '09:19:38');
+				done();
+			});
+
+			test('_setMinMax accepts undefined arguments', function (done) {
+				assert.equal(input.min, null);
+				assert.equal(input.max, null);
+				input._setMinMax();
+				Polymer.Base.async(function () {
+					assert.isUndefined(input.min);
+					assert.isUndefined(input.max);
+					done();
+				}, 200);
+			});
+
+			test('_setMinMax sets minDate and minTime properties', function (done) {
+				input._setMinMax('2015-07-30T10:04:17');
+				Polymer.Base.async(function () {
+					assert.equal(input._minDate, '2015-07-30');
+					assert.equal(input._minTime, '10:04:17');
+					assert.isNull(input._maxDate);
+					assert.isNull(input._maxTime);
+					done();
+				}, 600);
+			});
+
+			test('_setMinMax sets maxDate and maxTime properties', function (done) {
+				input._setMinMax(null, '2017-01-03T02:42:38');
+				Polymer.Base.async(function () {
+					assert.isNull(input._minDate);
+					assert.isNull(input._minTime);
+					assert.equal(input._maxDate, '2017-01-03');
+					assert.equal(input._maxTime, '02:42:38');
+
+					done();
+				}, 600);
+			});
+
+			test('_setMinMax sets minDate, minTime, maxDate and maxTime properties', function (done) {
+				input._setMinMax('2014-12-09T12:07:14', '2021-04-19T10:52:46');
+				Polymer.Base.async(function () {
+					assert.equal(input._minDate, '2014-12-09');
+					assert.equal(input._minTime, '12:07:14');
+					assert.equal(input._maxDate, '2021-04-19');
+					assert.equal(input._maxTime, '10:52:46');
+
+					done();
+				}, 600);
+			});
+		});
+	</script>
+</body></html>
