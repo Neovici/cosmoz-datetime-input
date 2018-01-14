@@ -1,42 +1,157 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>cosmoz-datetime-input test</title>
+	<title>cosmoz-datetime-input test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../cosmoz-datetime-input.html">
-  </head>
-  <body>
+	<link rel="import" href="../cosmoz-datetime-input.html">
+</head><body>
 
-    <test-fixture id="BasicTestFixture">
-      <template>
-        <cosmoz-datetime-input></cosmoz-datetime-input>
-      </template>
-    </test-fixture>
+	<test-fixture id="BasicTestFixture">
+		<template>
+			<cosmoz-datetime-input></cosmoz-datetime-input>
+		</template>
+	</test-fixture>
 
-    <script>
-      suite('cosmoz-datetime-input', function () {
-      	var input;
+	<script>
+		suite('cosmoz-datetime-input', function () {
+			var input;
 
-      	setup(function () {
-      		input = fixture('BasicTestFixture');
-      	});
+			setup(function () {
+				input = fixture('BasicTestFixture');
+			});
 
-      	test('instantiating the element works', function () {
-      		assert.equal(input.is, 'cosmoz-datetime-input');
-      	});
-      	test('Setting input value', function () {
-      		input.value = '2019-10-14T14:33:59';
-      		assert.equal(input.date, '2019-10-14');
-      		assert.equal(input.time, '14:33:59');
-      	});
-      });
-    </script>
+			test('instantiating the element works', function () {
+				assert.equal(input.is, 'cosmoz-datetime-input');
+			});
 
-  </body>
-</html>
+			test('setting input value updates date and time', function () {
+				input.value = '2019-10-14T14:33:59';
+				assert.equal(input.date, '2019-10-14');
+				assert.equal(input.time, '14:33:59');
+
+				input.value = '2024-08-14T01:02:03';
+				assert.equal(input.date, '2024-08-14');
+				assert.equal(input.time, '01:02:03');
+
+				input.value = '1997-11-03T11:37:48';
+				assert.equal(input.date, '1997-11-03');
+				assert.equal(input.time, '11:37:48');
+
+				input.value = '2004-02-13T06:23:07';
+				assert.equal(input.date, '2004-02-13');
+				assert.equal(input.time, '06:23:07');
+			});
+
+			test('setting input value updates date', function () {
+				input.value = '2016-04-24';
+				assert.equal(input.date, '2016-04-24');
+				assert.isUndefined(input.time);
+
+				input.value = '2119-12-31';
+				assert.equal(input.date, '2119-12-31');
+				assert.isUndefined(input.time);
+
+				input.value = '2000-07-13';
+				assert.equal(input.date, '2000-07-13');
+				assert.isUndefined(input.time);
+
+				input.value = '2019-09-28';
+				assert.equal(input.date, '2019-09-28');
+				assert.isUndefined(input.time);
+			});
+
+
+			test('_getDateTimeParts returns date, time', function () {
+				assert.isUndefined(input._getDateTimeParts());
+				assert.isUndefined(input._getDateTimeParts(null));
+				assert.isUndefined(input._getDateTimeParts(''));
+
+				let result = input._getDateTimeParts('2017-03-23T11:22:33');
+				assert.equal(result[0], '2017-03-23');
+				assert.equal(result[1], '11:22:33');
+
+				result = input._getDateTimeParts('2021-12-03T09:26:04');
+				assert.equal(result[0], '2021-12-03');
+				assert.equal(result[1], '09:26:04');
+
+				result = input._getDateTimeParts('2017-01-16T09:19:38');
+				assert.equal(result[0], '2017-01-16');
+				assert.equal(result[1], '09:19:38');
+
+				result = input._getDateTimeParts('2034-05-26T14:33:15');
+				assert.equal(result[0], '2034-05-26');
+				assert.equal(result[1], '14:33:15');
+			});
+
+			test('_setMinMax accepts undefined arguments', function () {
+				assert.equal(input.min, null);
+				assert.equal(input.max, null);
+				input._setMinMax();
+				assert.isUndefined(input.min);
+				assert.isUndefined(input.max);
+			});
+
+			test('_setMinMax sets minDate and minTime properties', function () {
+				input._setMinMax('2015-07-30T10:04:17');
+				assert.equal(input._minDate, '2015-07-30');
+				assert.equal(input._minTime, '10:04:17');
+				assert.isNull(input._maxDate);
+				assert.isNull(input._maxTime);
+			});
+
+			test('_setMinMax sets maxDate and maxTime properties', function () {
+				input._setMinMax(null, '2017-01-03T02:42:38');
+				assert.isNull(input._minDate);
+				assert.isNull(input._minTime);
+				assert.equal(input._maxDate, '2017-01-03');
+				assert.equal(input._maxTime, '02:42:38');
+			});
+
+			test('_setMinMax sets minDate, minTime, maxDate and maxTime properties', function () {
+				input._setMinMax('2014-12-09T12:07:14', '2021-04-19T10:52:46');
+				assert.equal(input._minDate, '2014-12-09');
+				assert.equal(input._minTime, '12:07:14');
+				assert.equal(input._maxDate, '2021-04-19');
+				assert.equal(input._maxTime, '10:52:46');
+			});
+
+			test('_valueChanged sets date property', function () {
+				input._valueChanged('2012-07-14');
+				assert.equal(input.date, '2012-07-14');
+
+				input._valueChanged('2016-11-23');
+				assert.equal(input.date, '2016-11-23');
+
+				input._valueChanged('1904-01-17');
+				assert.equal(input.date, '1904-01-17');
+
+				input._valueChanged('2195-06-20');
+				assert.equal(input.date, '2195-06-20');
+			});
+
+			test('_valueChanged sets date and time property', function () {
+				input._valueChanged('2020-01-09T04:52:15');
+				assert.equal(input.date, '2020-01-09');
+				assert.equal(input.time, '04:52:15');
+
+				input._valueChanged('2012-10-15T07:28:13');
+				assert.equal(input.date, '2012-10-15');
+				assert.equal(input.time, '07:28:13');
+
+				input._valueChanged('1936-12-03T18:36:01');
+				assert.equal(input.date, '1936-12-03');
+				assert.equal(input.time, '18:36:01');
+
+				input._valueChanged('2048-09-16T02:22:41');
+				assert.equal(input.date, '2048-09-16');
+				assert.equal(input.time, '02:22:41');
+			});
+		});
+	</script>
+</body></html>

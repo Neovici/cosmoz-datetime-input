@@ -9,8 +9,10 @@
 		"CustomElements": false,
 		"HTMLImports": false,
 		"Polymer": false,
-		"WeakMap": false,
-		"moment": false
+		"WeakMap": false
+	},
+	"parserOptions": {
+		"ecmaVersion": 6
 	},
 	"plugins": [
 		"html"
