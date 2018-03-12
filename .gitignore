@@ -1,7 +1,9 @@
 bower_components/
 bower_components-1.x/
+bower-1.x.json
 node_modules/
+coverage/
+yarn-error.log
 debug.log
 .eslintcache
 .DS_Store
-bower-1.x.json

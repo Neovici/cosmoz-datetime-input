@@ -170,11 +170,11 @@
 				this.time = '';
 				return;
 			}
-			var isDatetime = this._separators.some(split => {
+			const isDatetime = this._separators.some(split => {
 				if (!value.match(split)) {
 					return;
 				}
-				var parts = this._getDateTimeParts(value);
+				let parts = this._getDateTimeParts(value);
 				this.date = parts.shift();
 				this.time = parts.shift();
 				return true;
@@ -195,7 +195,7 @@
 				return;
 			}
 
-			var parts;
+			let parts;
 
 			this._separators.some(split => {
 				if (!aDateTime.match(split)) {
@@ -214,7 +214,7 @@
 		 * @return {undefined}
 		 */
 		_setMinMax(min, max) {
-			var minParts = this._getDateTimeParts(min),
+			let minParts = this._getDateTimeParts(min),
 				maxParts = this._getDateTimeParts(max);
 
 			this._minDate = Array.isArray(minParts) ? minParts.shift() : null;
