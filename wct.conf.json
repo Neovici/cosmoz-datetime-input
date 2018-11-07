@@ -7,7 +7,7 @@
 			"dir": "./coverage",
 			"reporters": ["text-summary", "lcov"],
 			"include": [
-				"cosmoz-date-time-input.html"
+				"cosmoz-datetime-input.html"
 			],
 			"exclude": []
 		}
