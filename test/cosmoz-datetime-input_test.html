@@ -133,10 +133,8 @@
 			});
 
 			test('_valueChanged fires ' + eventType, () => {
-				input.addEventListener(eventType, (event) => assert.equal(event.type, eventType));
+				input.addEventListener(eventType, event => assert.equal(event.type, eventType));
 				input._valueChanged('2012-07-14');
-
-				input
 			});
 
 			test('_valueChanged sets date and time property', () => {
@@ -167,7 +165,7 @@
 
 				input._setValue(null, '02:22:41');
 				assert.equal(input.value, 'T02:22:41');
-				
+
 				input._setValue(null, null);
 				input._setValue('2012-10-15', null);
 				assert.equal(input.value, '2012-10-15');
