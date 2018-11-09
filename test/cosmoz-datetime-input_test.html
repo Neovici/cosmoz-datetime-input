@@ -19,18 +19,12 @@
 	</test-fixture>
 
 	<script>
-	(() => {
-
 		suite('cosmoz-datetime-input', () => {
 			var input;
 			const eventType = 'cosmoz-datetime-input-value-changed';
 
 			setup(() => {
 				input = fixture('BasicTestFixture');
-			});
-
-			test('instantiating the element works', () => {
-				setTimeout(() => assert.equal(input.is, 'cosmoz-datetime-input'), 1);
 			});
 
 			test('setting input value updates date and time', () => {
@@ -183,6 +177,5 @@
 				assert.equal(input.value, '2012-10-15T02:22:41');
 			});
 		});
-	})();
 	</script>
 </body></html>
