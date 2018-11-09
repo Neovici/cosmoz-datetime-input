@@ -145,7 +145,7 @@
 		constructor() {
 			super();
 		}
-		
+
 		/**
 		 * Sets the value property via a date and time string.
 		 * @param {String} date - The date string.
@@ -157,19 +157,19 @@
 				this.value = null;
 				return;
 			}
-			
+
 			if (!date && time) {
 				this.value = `T${time}`;
 				return;
 			}
-			
+
 			if (date && !time) {
 				this.value = date;
 				return;
 			}
 			this.value = `${date}T${time}`;
 		}
-		
+
 		/**
 		 * Sets the date and time property via a value string.
 		 * @param {String} value - The input value. Either datetime or date string.
@@ -190,13 +190,13 @@
 				this.time = parts.shift();
 				return true;
 			});
-			
+
 			if (!isDatetime) {
 				this.date = value;
 			}
 			this.dispatchEvent(new CustomEvent('cosmoz-datetime-input-value-changed', { bubbles: true, composed: true }));
 		}
-		
+
 		/**
 		 * Returns a [date, time] or [date] array via a dateTime string.
 		 * @param {String} aDateTime - The datetime or date string.
@@ -206,9 +206,9 @@
 			if (!aDateTime) {
 				return;
 			}
-			
+
 			let parts;
-			
+
 			this._separators.some(split => {
 				if (!aDateTime.match(split)) {
 					return;
@@ -216,7 +216,7 @@
 				parts = aDateTime.split(split);
 				return true;
 			});
-			
+
 			return parts || [aDateTime];
 		}
 		/**
@@ -228,10 +228,10 @@
 		_setMinMax(min, max) {
 			let minParts = this._getDateTimeParts(min),
 				maxParts = this._getDateTimeParts(max);
-			
+
 			this._minDate = Array.isArray(minParts) ? minParts.shift() : null;
 			this._minTime = Array.isArray(minParts) ? minParts.shift() : null;
-			
+
 			this._maxDate = Array.isArray(maxParts) ? maxParts.shift() : null;
 			this._maxTime = Array.isArray(maxParts) ? maxParts.shift() : null;
 		}
