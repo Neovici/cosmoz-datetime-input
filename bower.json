@@ -3,7 +3,7 @@
 	"description": "Mimics &lt;input type=&#34;cosmoz-datetime-input&#34;&gt; with brad browser support",
 	"main": "cosmoz-datetime-input.html",
 	"dependencies": {
-		"polymer": "Polymer/polymer#^2.0.0",
+		"polymer": "Polymer/polymer#^2.6.1",
 		"paper-input": "PolymerElements/paper-input#^2.0.0"
 	},
 	"devDependencies": {
