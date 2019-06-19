@@ -1,91 +1,86 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>cosmoz-datetime-input demo</title>
+		<title>cosmoz-datetime-input demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../../polymer/polymer.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../cosmoz-datetime-input.html">
+		<script src="/components/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script type="module" src="/components/@polymer/polymer/polymer-legacy.js"></script>
+		<script type="module" src="/components/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+		<script type="module" src="/components/@polymer/iron-demo-helpers/demo-snippet.js"></script>
+		<script type="module" src="../cosmoz-datetime-input.js"></script>
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
-    </custom-style>
-  </head>
-  <body unresolved>
-    <div class="vertical-section-container centered">
-      <h3>Basic cosmoz-datetime-input demo</h3>
-      <demo-snippet>
-        <template>
-          <dom-bind>
-              <template is="dom-bind">
-                <cosmoz-datetime-input date-label="Date label" time-label="Time Label"
-                  date="{{date}}"
-                  time="{{time}}"
-                  value="{{value}}"></cosmoz-datetime-input>
-                <div>
-                  <p>Date: [[date]]</p>
-                  <p>Time: [[time]]</p>
-                  <p>Value: [[value]]</p>
-                </div>
-              </template>
-          </dom-bind>
-        </template>
-      </demo-snippet>
-      <h3>Set value cosmoz-datetime-input demo</h3>
-      <demo-snippet>
-        <template>
-          <dom-bind class="scope">
-              <template is="dom-bind" class="scope">
-                <cosmoz-datetime-input date-label="Date label" time-label="Time Label"
-                  date="{{date}}"
-                  time="{{time}}"
-                  value="{{value}}"></cosmoz-datetime-input>
-                <div>
-                  <p>Date: [[date]]</p>
-                  <p>Time: [[time]]</p>
-                  <input is="iron-input" value="{{value::input}}">
-                </div>
-              </template>
-          </dom-bind>
-        </template>
-      </demo-snippet>
-      <h3>Min/Max cosmoz-datetime-input demo</h3>
-      <demo-snippet>
-        <template>
-          <dom-bind class="scope">
-              <template is="dom-bind" class="scope">
-                <cosmoz-datetime-input date-label="Date label" time-label="Time Label"
-                  date="{{date}}"
-                  time="{{time}}"
-                  min="2019-10-01T12:00:00"
-                  max="2019-10-07T14:00:00"
-                  value="{{value}}"></cosmoz-datetime-input>
-                <div>
-                  <p>Date: [[date]]</p>
-                  <p>Time: [[time]]</p>
-                  <p>Min: 2019-10-01T12:00:00</p>
-                  <p>Max: 2019-10-07T14:00:00</p>
-                  <input is="iron-input" value="{{value::input}}">
-                </div>
-              </template>
-          </dom-bind>
-        </template>
-      </demo-snippet>
-    </div>
+		<custom-style>
+			<style is="custom-style" include="demo-pages-shared-styles">
+			</style>
+		</custom-style>
+	</head>
+	<body unresolved>
+		<div class="vertical-section-container centered">
+			<h3>Basic cosmoz-datetime-input demo</h3>
+			<demo-snippet>
+				<template>
+					<dom-bind>
+							<template is="dom-bind">
+								<cosmoz-datetime-input date-label="Date label"
+									time-label="Time Label" date="{{date}}"
+									time="{{time}}" value="{{value}}"></cosmoz-datetime-input>
+								<div>
+									<p>Date: [[date]]</p>
+									<p>Time: [[time]]</p>
+									<p>Value: [[value]]</p>
+								</div>
+							</template>
+					</dom-bind>
+				</template>
+			</demo-snippet>
+			<h3>Set value cosmoz-datetime-input demo</h3>
+			<demo-snippet>
+				<template>
+					<dom-bind class="scope">
+							<template is="dom-bind" class="scope">
+								<cosmoz-datetime-input date-label="Date label"
+									time-label="Time Label" date="{{date}}"
+									time="{{time}}" value="{{value}}"></cosmoz-datetime-input>
+								<div>
+									<p>Date: [[date]]</p>
+									<p>Time: [[time]]</p>
+									<input is="iron-input" value="{{value::input}}">
+								</div>
+							</template>
+					</dom-bind>
+				</template>
+			</demo-snippet>
+			<h3>Min/Max cosmoz-datetime-input demo</h3>
+			<demo-snippet>
+				<template>
+					<dom-bind class="scope">
+							<template is="dom-bind" class="scope">
+								<cosmoz-datetime-input date-label="Date label"
+									time-label="Time Label" date="{{date}}"
+									time="{{time}}" min="2019-10-01T12:00:00" max="2019-10-07T14:00:00" value="{{value}}"></cosmoz-datetime-input>
+								<div>
+									<p>Date: [[date]]</p>
+									<p>Time: [[time]]</p>
+									<p>Min: 2019-10-01T12:00:00</p>
+									<p>Max: 2019-10-07T14:00:00</p>
+									<input is="iron-input" value="{{value::input}}">
+								</div>
+							</template>
+					</dom-bind>
+				</template>
+			</demo-snippet>
+		</div>
 
-    <script type="text/javascript">
-      (() => {
-      	window.addEventListener('WebComponentsReady', () => {
-      		let value = '2019-10-02T12:33:59';
-      		document.querySelectorAll('.scope').forEach(s => s.value = value);
-      	});
-      })();
+		<script type="module">
+			window.addEventListener('WebComponentsReady', () => {
+				const value = '2019-10-02T12:33:59';
+				document.querySelectorAll('.scope').forEach(s => {
+					s.value = value;
+				});
+			});
 		</script>
-  </body>
+	</body>
 </html>
