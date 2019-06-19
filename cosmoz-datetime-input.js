@@ -40,11 +40,11 @@ class CosmozDatetimeInput extends PolymerElement {
 		</style>
 
 		<div class="container">
-			<paper-input-container always-float-label="">
+			<paper-input-container always-float-label>
 				<label hidden\$="[[ !dateLabel ]]" slot="label" aria-hidden="true" for="dateInput">[[ dateLabel ]]</label>
 				<input id="dateInput" type="date" slot="input" value="{{ date::input }}" min\$="[[ _minDate ]]" max\$="[[ _maxDate ]]">
 			</paper-input-container>
-			<paper-input-container always-float-label="">
+			<paper-input-container always-float-label>
 				<label hidden\$="[[ !timeLabel ]]" slot="label" aria-hidden="true" for="timeInput">[[ timeLabel ]]</label>
 				<input id="timeInput" type="time" slot="input" value="{{ time::input }}" step="[[ step ]]" min\$="[[ _minTime ]]" max\$="[[ _maxTime ]]">
 			</paper-input-container>
@@ -139,9 +139,6 @@ class CosmozDatetimeInput extends PolymerElement {
 			'_setValue(date, time)',
 			'_setMinMax(min, max)'
 		];
-	}
-	constructor() {
-		super();
 	}
 
 	/**
