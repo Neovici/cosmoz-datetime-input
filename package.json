@@ -1,6 +1,6 @@
 {
-	"name": "cosmoz-datetime-input",
-	"version": "1.0.0",
+	"name": "@neovici/cosmoz-datetime-input",
+	"version": "3.0.0",
 	"description": "",
 	"keywords": [
 		"datepicker",
@@ -21,6 +21,8 @@
 	"scripts": {
 		"analyze": "polymer analyze --input cosmoz-*.js  > analysis.json",
 		"lint": "eslint --cache --ext .js,.html . && polymer lint cosmoz-*.js",
+		"preversion": "npm run lint && npm run test -- --skip-plugin sauce",
+		"postversion": "git push && git push --tags",
 		"start": "polymer serve -o",
 		"test": "polymer test"
 	},
@@ -30,7 +32,7 @@
 		"@webcomponents/shadycss": "^1.9.1"
 	},
 	"devDependencies": {
-		"@neovici/eslint-config": "neovici/eslint-config#semver:^1.0.0",
+		"@neovici/eslint-config": "github:neovici/eslint-config#semver:^1.0.0",
 		"@polymer/iron-component-page": "^4.0.0",
 		"@polymer/iron-demo-helpers": "^3.0.0",
 		"@polymer/iron-test-helpers": "^3.0.0",
