@@ -3,6 +3,7 @@ import {
 } from '@open-wc/testing';
 import '../cosmoz-datetime-input';
 
+/* eslint-disable-next-line max-lines-per-function */
 suite('basic', () => {
 	let input;
 	const eventType = 'cosmoz-datetime-input-value-changed';
