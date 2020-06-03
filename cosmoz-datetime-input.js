@@ -154,7 +154,7 @@ class CosmozDatetimeInput extends PolymerElement {
 		}
 
 		if (!date && time) {
-			this.value = `T${time}`;
+			this.value = `T${ time }`;
 			return;
 		}
 
@@ -162,7 +162,7 @@ class CosmozDatetimeInput extends PolymerElement {
 			this.value = date;
 			return;
 		}
-		this.value = `${date}T${time}`;
+		this.value = `${ date }T${ time }`;
 	}
 
 	/**
@@ -189,7 +189,10 @@ class CosmozDatetimeInput extends PolymerElement {
 		if (!isDatetime) {
 			this.date = value;
 		}
-		this.dispatchEvent(new CustomEvent('cosmoz-datetime-input-value-changed', { bubbles: true, composed: true }));
+		this.dispatchEvent(new CustomEvent('cosmoz-datetime-input-value-changed', {
+			bubbles: true,
+			composed: true
+		}));
 	}
 
 	/**
