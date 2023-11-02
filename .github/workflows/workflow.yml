@@ -14,18 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
 
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: 12.x
+        node-version: 20
 
     - name: Install
       run: npm ci
 
-    - name: Lint commit messages
-      run: npx commitlint --from origin/master --to HEAD
+    - name: Lint commits
+      uses: wagoid/commitlint-github-action@v5
 
     - name: ESLint
       run: npm run lint
@@ -42,7 +42,7 @@ jobs:
       run: |
         ([[ -e $NEO_CC ]] || curl -L $NEO_CC_URL > $NEO_CC) && chmod +x $NEO_CC
         $NEO_CC before-build
-        echo "::add-matcher::.github/karma-problem-matcher.json"   
+        echo "::add-matcher::.github/karma-problem-matcher.json"
         npm test
         $NEO_CC after-build --exit-code $?
 
