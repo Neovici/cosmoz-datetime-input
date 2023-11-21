@@ -80,7 +80,7 @@ suite('basic', () => {
 			date.value = '2019-10-05';
 			date.dispatchEvent(new KeyboardEvent('input'));
 		});
-		const ev = await oneEvent(input, 'value-changed');
+		const ev = await oneEvent(input, eventType);
 		assert.equal(ev.target.value, '2019-10-05T12:33:59');
 	});
 });
