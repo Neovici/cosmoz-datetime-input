@@ -1,6 +1,6 @@
 {
   "name": "@neovici/cosmoz-datetime-input",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Mimics date input with broad browser support.",
   "keywords": [
     "datepicker",
