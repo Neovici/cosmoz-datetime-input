@@ -13,7 +13,7 @@ const separators = ['T', ' '];
  * @return {undefined}
  */
 const getDateTimeParts = (aDateTime) => {
-	if (!aDateTime) {
+	if (!aDateTime || typeof aDateTime !== 'string') {
 		return;
 	}
 
