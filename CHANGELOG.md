@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v3.2.0...v3.2.1) (2023-11-22)
+
+
+### Bug Fixes
+
+* **cosmoz-datetime-input:** handle undefined date ([78dd68e](https://github.com/Neovici/cosmoz-datetime-input/commit/78dd68ef50e3af062e91bda61323ee40b046f521))
+
 ## [3.2.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v3.1.0...v3.2.0) (2023-11-22)
 
 
