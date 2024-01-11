@@ -1,4 +1,4 @@
-import { html, component, useEffect, useMemo } from 'haunted';
+import { html, component, useEffect, useMemo } from '@pionjs/pion';
 import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
 import '@neovici/cosmoz-input';
 
