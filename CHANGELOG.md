@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v3.2.1...v4.0.0) (2024-01-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update to @pionjs/pion
+
+### Features
+
+* update to pion ([4f8b14e](https://github.com/Neovici/cosmoz-datetime-input/commit/4f8b14e6cb4a558627b7eea56eeab2caba91b63a))
+
 ## [3.2.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v3.2.0...v3.2.1) (2023-11-22)
 
 
