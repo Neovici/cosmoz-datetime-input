@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.0.0...v4.0.1) (2024-04-19)
+
+
+### Bug Fixes
+
+* **dependencies:** newest cosmoz-input is needed in all the repos using it ([6bca4ee](https://github.com/Neovici/cosmoz-datetime-input/commit/6bca4ee0bb6a6eb64253236b482915104f78f090))
+
 ## [4.0.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v3.2.1...v4.0.0) (2024-01-11)
 
 
