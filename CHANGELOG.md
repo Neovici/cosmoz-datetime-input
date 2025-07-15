@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.1.0...v4.1.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* **ci:** auto approve merge if dependabot PRs ([f7f1a69](https://github.com/Neovici/cosmoz-datetime-input/commit/f7f1a6987ac4f064d220914218ad0362d7001675))
+
 ## [4.1.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.0.1...v4.1.0) (2024-05-31)
 
 
