@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.1.1...v4.1.2) (2025-07-18)
+
+
+### Bug Fixes
+
+* **cfg-eslint:** bump cfg 1.53 to 2.3.0 ([80e1e47](https://github.com/Neovici/cosmoz-datetime-input/commit/80e1e4774a18ba3a9344fc94625db1299cd81bcc))
+
 ## [4.1.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.1.0...v4.1.1) (2025-07-15)
 
 
