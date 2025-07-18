@@ -1,3 +1,10 @@
+## [4.2.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.1.2...v4.2.0) (2025-07-18)
+
+
+### Features
+
+* **ci:** add auto approve merge dependabot ([511e5e8](https://github.com/Neovici/cosmoz-datetime-input/commit/511e5e848afb0098b241087ba1515caca420a870))
+
 ## [4.1.2](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.1.1...v4.1.2) (2025-07-18)
 
 
