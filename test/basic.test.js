@@ -4,7 +4,6 @@ import '../cosmoz-datetime-input';
 const getDate = (el) => el.shadowRoot.querySelector('[type="date"]')?.value;
 const getTime = (el) => el.shadowRoot.querySelector('[type="time"]')?.value;
 
-/* eslint-disable-next-line max-lines-per-function */
 suite('basic', () => {
 	const eventType = 'cosmoz-datetime-input-value-changed';
 
