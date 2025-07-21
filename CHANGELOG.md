@@ -8,6 +8,19 @@
 
 ### Bug Fixes
 
+* file renamed and deduplicate config ([4500b65](https://github.com/Neovici/cosmoz-datetime-input/commit/4500b65bcf4174e821a79d847571bc93885a1784))
+* rename workflow ([013c7e0](https://github.com/Neovici/cosmoz-datetime-input/commit/013c7e093fd4fd0d3e6a7e5d929f4381b2ef8e52))
+
+## [4.4.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.3.0...v4.4.0) (2025-07-21)
+
+
+### Features
+
+* automerge workflow config ([6687df8](https://github.com/Neovici/cosmoz-datetime-input/commit/6687df8b55afb30ca9b1e9ba249de8f8d09558b0))
+
+
+### Bug Fixes
+
 * rename workflow ([013c7e0](https://github.com/Neovici/cosmoz-datetime-input/commit/013c7e093fd4fd0d3e6a7e5d929f4381b2ef8e52))
 
 ## [4.4.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.3.0...v4.4.0) (2025-07-21)
