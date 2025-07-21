@@ -1,3 +1,10 @@
+## [4.4.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.3.0...v4.4.0) (2025-07-21)
+
+
+### Features
+
+* automerge workflow config ([6687df8](https://github.com/Neovici/cosmoz-datetime-input/commit/6687df8b55afb30ca9b1e9ba249de8f8d09558b0))
+
 ## [4.4.0](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.3.0...v4.4.0) (2025-07-20)
 
 
