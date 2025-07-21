@@ -49,11 +49,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
-	},
 	"dependencies": {
 		"@neovici/cosmoz-input": "^5.0.1",
 		"@neovici/cosmoz-utils": "^6.9.0",
