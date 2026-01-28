@@ -25,7 +25,7 @@
 	],
 	"scripts": {
 		"lint": "eslint --cache .",
-    "check:duplicates": "check-duplicate-components",
+		"check:duplicates": "check-duplicate-components",
 		"start": "npm run storybook:start",
 		"test": "wtr --coverage",
 		"test:watch": "wtr --watch",
