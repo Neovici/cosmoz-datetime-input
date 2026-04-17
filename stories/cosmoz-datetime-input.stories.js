@@ -1,6 +1,6 @@
-import { html, virtual, useState } from '@pionjs/pion';
+import { html, useState, virtual } from '@pionjs/pion';
 
-import { fromValue } from '../cosmoz-datetime-input.js';
+import { fromValue } from '../src/cosmoz-datetime-input.js';
 
 export default {
 	title: 'Datetime Input',

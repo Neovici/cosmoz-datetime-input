@@ -1,6 +1,7 @@
-import { html, component, useEffect, useMemo } from '@pionjs/pion';
-import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
 import '@neovici/cosmoz-input';
+import { normalize } from '@neovici/cosmoz-tokens/normalize';
+import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
+import { component, html, useEffect, useMemo } from '@pionjs/pion';
 
 /**
  * The possible separators between date and time input values
@@ -109,6 +110,7 @@ const DateTimeInput = (host) => {
 			:host {
 				display: flex;
 				flex-direction: row;
+				gap: var(--cz-spacing);
 			}
 		</style>
 		<cosmoz-input
@@ -136,5 +138,8 @@ customElements.define(
 	'cosmoz-datetime-input',
 	component(DateTimeInput, {
 		observedAttributes: ['date-label', 'time-label', 'min', 'max', 'step'],
+		styleSheets: [normalize],
 	}),
 );
+
+export { DateTimeInput };
