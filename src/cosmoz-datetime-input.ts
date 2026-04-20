@@ -1,18 +1,26 @@
-import { html, component, useEffect, useMemo } from '@pionjs/pion';
-import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
 import '@neovici/cosmoz-input';
+import { normalize } from '@neovici/cosmoz-tokens/normalize';
+import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
+import { component, html, useEffect, useMemo } from '@pionjs/pion';
 
 /**
  * The possible separators between date and time input values
  */
 const separators = ['T', ' '];
 
+interface DateTimeParts {
+	date?: string;
+	time?: string;
+}
+
 /**
  * Returns a [date, time] or [date] array via a dateTime string.
  * @param {String} aDateTime - The datetime or date string.
  * @return {undefined}
  */
-const getDateTimeParts = (aDateTime) => {
+const getDateTimeParts = (
+	aDateTime: string | undefined,
+): string[] | undefined => {
 	if (!aDateTime || typeof aDateTime !== 'string') {
 		return;
 	}
@@ -36,7 +44,7 @@ const getDateTimeParts = (aDateTime) => {
  * @param {String} max - the max Date/DateTime.
  * @return {undefined}
  */
-const getMinMax = (min, max) => {
+const getMinMax = (min: string | undefined, max: string | undefined) => {
 	const minParts = getDateTimeParts(min),
 		maxParts = getDateTimeParts(max);
 
@@ -48,7 +56,7 @@ const getMinMax = (min, max) => {
 	};
 };
 
-export const toValue = (date, time) => {
+export const toValue = (date?: string, time?: string): string | undefined => {
 	if (!date && !time) {
 		return;
 	}
@@ -61,7 +69,7 @@ export const toValue = (date, time) => {
 	return `${date}T${time}`;
 };
 
-export const fromValue = (value) => {
+export const fromValue = (value?: string): DateTimeParts | undefined => {
 	if (!value) {
 		return;
 	}
@@ -88,13 +96,25 @@ export const fromValue = (value) => {
  * @demo demo/index.html
  */
 
-const DateTimeInput = (host) => {
+interface DateTimeInputElement extends HTMLElement {
+	dateLabel?: string;
+	timeLabel?: string;
+	min?: string;
+	max?: string;
+	step?: string;
+	value?: string;
+}
+
+const DateTimeInput = (host: DateTimeInputElement) => {
 	const { dateLabel, timeLabel, min, max, step = '1', value } = host;
 	const { minDate, maxDate, minTime, maxTime } = useMemo(
 		() => getMinMax(min, max),
 		[min, max],
 	);
-	const { date, time } = useMemo(() => fromValue(value) ?? {}, [value]);
+	const { date = '', time = '' } = useMemo(
+		() => fromValue(value) ?? {},
+		[value],
+	);
 	useEffect(() => {
 		host.dispatchEvent(
 			new CustomEvent('cosmoz-datetime-input-value-changed', {
@@ -109,14 +129,19 @@ const DateTimeInput = (host) => {
 			:host {
 				display: flex;
 				flex-direction: row;
+				gap: var(--cz-spacing);
 			}
 		</style>
 		<cosmoz-input
 			label="${dateLabel}"
 			type="date"
 			.value="${date}"
-			@value-changed="${(e) =>
-				notifyProperty(host, 'value', toValue(e.target.value, time))}"
+			@value-changed="${(e: Event) =>
+				notifyProperty(
+					host,
+					'value',
+					toValue((e.target as HTMLInputElement).value, time),
+				)}"
 			.min="${minDate}"
 			.max="${maxDate}"
 		></cosmoz-input>
@@ -124,8 +149,12 @@ const DateTimeInput = (host) => {
 			label="${timeLabel}"
 			type="time"
 			.value="${time}"
-			@value-changed="${(e) =>
-				notifyProperty(host, 'value', toValue(date, e.target.value))}"
+			@value-changed="${(e: Event) =>
+				notifyProperty(
+					host,
+					'value',
+					toValue(date, (e.target as HTMLInputElement).value),
+				)}"
 			step="${step}"
 			.min="${minTime}"
 			.max="${maxTime}"
@@ -136,5 +165,6 @@ customElements.define(
 	'cosmoz-datetime-input',
 	component(DateTimeInput, {
 		observedAttributes: ['date-label', 'time-label', 'min', 'max', 'step'],
+		styleSheets: [normalize],
 	}),
 );
