@@ -1,5 +1,5 @@
-import { assert, html, fixture, nextFrame, oneEvent } from '@open-wc/testing';
-import '../cosmoz-datetime-input';
+import { assert, fixture, html, nextFrame, oneEvent } from '@open-wc/testing';
+import '../src/cosmoz-datetime-input';
 
 const getDate = (el) => el.shadowRoot.querySelector('[type="date"]')?.value;
 const getTime = (el) => el.shadowRoot.querySelector('[type="time"]')?.value;
