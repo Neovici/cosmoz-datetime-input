@@ -107,14 +107,12 @@ interface DateTimeInputElement extends HTMLElement {
 
 const DateTimeInput = (host: DateTimeInputElement) => {
 	const { dateLabel, timeLabel, min, max, step = '1', value } = host;
+
 	const { minDate, maxDate, minTime, maxTime } = useMemo(
 		() => getMinMax(min, max),
 		[min, max],
 	);
-	const { date = '', time = '' } = useMemo(
-		() => fromValue(value) ?? {},
-		[value],
-	);
+	const { date, time } = useMemo(() => fromValue(value) ?? {}, [value]);
 	useEffect(() => {
 		host.dispatchEvent(
 			new CustomEvent('cosmoz-datetime-input-value-changed', {
