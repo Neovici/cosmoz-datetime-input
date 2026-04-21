@@ -1,3 +1,17 @@
+## [5.0.0-beta.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.4.0-beta.1...v5.0.0-beta.1) (2026-04-21)
+
+### ⚠ BREAKING CHANGES
+
+* Upgraded to typescript and depend on cosmoz-tokens
+
+### Features
+
+* upgrade to typescript ([#147](https://github.com/Neovici/cosmoz-datetime-input/issues/147)) ([d0d252f](https://github.com/Neovici/cosmoz-datetime-input/commit/d0d252f253962700aa54dcbebee9ff11c1553c3c))
+
+### Bug Fixes
+
+* preserve undefined date/time values and remove unused Storybook addons ([#148](https://github.com/Neovici/cosmoz-datetime-input/issues/148)) ([7b0c559](https://github.com/Neovici/cosmoz-datetime-input/commit/7b0c5595dbc80bf7bd55248e348a74603b80b4c0))
+
 ## 4.4.0-beta.1 (2026-04-17)
 
 * Merge pull request #114 from Neovici/dependabot/npm_and_yarn/vite-5.4.20 ([cbad1f5](https://github.com/Neovici/cosmoz-datetime-input/commit/cbad1f5)), closes [#114](https://github.com/Neovici/cosmoz-datetime-input/issues/114)
