@@ -1,3 +1,9 @@
+## [5.0.0-beta.2](https://github.com/Neovici/cosmoz-datetime-input/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2026-04-22)
+
+### Bug Fixes
+
+* add typescript build config ([#149](https://github.com/Neovici/cosmoz-datetime-input/issues/149)) ([6eb14f8](https://github.com/Neovici/cosmoz-datetime-input/commit/6eb14f8c48fa27dd8efe899de3f0dce297337c29))
+
 ## [5.0.0-beta.1](https://github.com/Neovici/cosmoz-datetime-input/compare/v4.4.0-beta.1...v5.0.0-beta.1) (2026-04-21)
 
 ### ⚠ BREAKING CHANGES
