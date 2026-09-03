@@ -5,3 +5,10 @@ yarn-error.log
 debug.log
 .eslintcache
 .DS_Store
+.envrc
+.npmrc
+
+# Codecov uploader artifacts
+codecov
+codecov.SHA256SUM
+codecov.SHA256SUM.sig
