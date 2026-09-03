@@ -1,3 +1,9 @@
+## 5.0.0
+
+### Major Changes
+
+- 7dccd99: Upgrade to typescript. Ships a dist build with an exports map (`.` and `./cosmoz-datetime-input`) and depends on `@neovici/cosmoz-tokens` and `@neovici/cosmoz-input` v6. Preserve undefined date/time values when editing only date or time.
+
 ## 4.4.0 (2026-01-28)
 
 - chore: add duplicate web component check (#128) ([f21e9aa](https://github.com/Neovici/cosmoz-datetime-input/commit/f21e9aa)), closes [#128](https://github.com/Neovici/cosmoz-datetime-input/issues/128)
