@@ -1,3 +1,9 @@
+## 5.1.0
+
+### Minor Changes
+
+- cdf7bf2: Allow `@neovici/cosmoz-tokens` ^3 || ^4 (light-dark() adoption)
+
 ## 5.0.0
 
 ### Major Changes
